@@ -1,0 +1,72 @@
+@import './base.css';
+
+#app {
+  width: 100%;
+  max-width: 1280px; /* Garante que o conteúdo nunca ultrapasse 1280px */
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1); /* Cor vibrante verde */
+  transition: 0.4s;
+  padding: 3px;
+}
+
+a:hover {
+  background-color: hsla(160, 100%, 37%, 0.2); /* Cor de fundo ao passar o mouse */
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+    margin: 0;
+    height: 100vh;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    height: 100%; /* Garante que o app ocupe toda a altura disponível */
+  }
+}
+
+@media (max-width: 1023px) {
+  #app {
+    display: block;
+    padding: 2rem 1rem; /* Mais espaço nas laterais para telas menores */
+  }
+
+  .book-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Melhor ajuste para listas de livros */
+  }
+}
+
+/* Adicionando responsividade para telas pequenas */
+@media (max-width: 768px) {
+  #app {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .book-list {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Ajuste para telas pequenas */
+  }
+
+  .book-item {
+    padding: 1rem;
+  }
+}
