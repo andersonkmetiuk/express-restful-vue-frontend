@@ -8,28 +8,30 @@
     <p v-if="book">Read: {{ book.read ? 'Yes' : 'No' }}</p>
 
     <p v-else>Loading...</p>
+
+    <RouterLink to="/">Home</RouterLink>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
   props: {
-    id: String,  // Accepts the book id as a prop
+    id: String, // Accepts the book id as a prop
   },
   data() {
     return {
       book: null,
-    };
+    }
   },
   async mounted() {
     try {
-      const response = await axios.get(`http://localhost:4000/api/books/${this.id}`);
-      this.book = response.data;
+      const response = await axios.get(`http://localhost:4000/api/books/${this.id}`)
+      this.book = response.data
     } catch (error) {
-      console.error('Error fetching book details:', error);
+      console.error('Error fetching book details:', error)
     }
   },
-};
+}
 </script>
