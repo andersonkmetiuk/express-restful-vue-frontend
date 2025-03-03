@@ -2,15 +2,13 @@
   <div>
     <h1>Book List</h1>
     <div id="app">
-      <h1>Livros</h1>
       <ul class="book-list">
         <li v-for="book in books" :key="book.id" class="book-item">
-          <!-- O router-link agora envolve todo o conteúdo do livro -->
           <router-link :to="'/book/' + book.id" class="book-link">
             <div class="book-title">{{ book.title }}</div>
             <div class="book-author">by {{ book.author }}</div>
             <div class="book-description">{{ book.description }}</div>
-            <div class="book-id">{{ book.id }}</div>
+            <!-- <div class="book-id">{{ book.id }}</div> -->
           </router-link>
         </li>
       </ul>
@@ -24,7 +22,7 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      books: [],
+      books: [], // List of books to display
     }
   },
   async mounted() {
@@ -42,7 +40,7 @@ export default {
 </script>
 
 <style scoped>
-/* Estilo Global */
+/* Global Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -58,9 +56,9 @@ body {
   line-height: 1.6;
 }
 
-/* Estilo para a página */
+/* Page Styles */
 #app {
-  width: 100%;
+  /* width: 100%;
   max-width: 1200px;
   min-height: 100%;
   margin: 0 auto;
@@ -71,25 +69,26 @@ body {
   overflow: auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-start; */
 }
 
 h1 {
   font-size: 3rem;
-  color: #1a73e8;
+  color: #4caf50;
   text-align: center;
   margin-bottom: 2rem;
   word-wrap: break-word;
   max-width: 100%;
 }
 
-/* Lista de livros */
+/* Book List */
 .book-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
   padding: 0;
   list-style: none;
+  width: 100%;
 }
 
 .book-item {
@@ -102,13 +101,14 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  width: 100%;
 }
 
 .book-item:hover {
   transform: translateY(-5px);
 }
 
-/* Título do livro */
+/* Book Title */
 .book-title {
   font-size: 1.5rem;
   font-weight: bold;
@@ -118,7 +118,7 @@ h1 {
   max-width: 100%;
 }
 
-/* Autor do livro */
+/* Book Author */
 .book-author {
   font-size: 1rem;
   color: #ff5722;
@@ -126,7 +126,7 @@ h1 {
   word-wrap: break-word;
 }
 
-/* Descrição do livro */
+/* Book Description */
 .book-description {
   font-size: 0.9rem;
   color: #757575;
@@ -139,9 +139,10 @@ h1 {
 .book-link {
   display: block;
   text-decoration: none;
+  width: 100%;
 }
 
-/* Responsividade */
+/* Responsiveness */
 @media (max-width: 768px) {
   #app {
     padding: 1rem;

@@ -12,7 +12,7 @@ const routes = [
     path: '/book/:id',
     name: 'Book',
     component: BookPage,
-    props: true, // Permite passar o parâmetro id como props para o componente
+    props: true, 
   },
 ]
 

@@ -7,7 +7,7 @@ export default {
   setup() {
     const books = ref([])
 
-    // Função para buscar os livros da API
+    // Function to fetch books from the API
     const fetchBooks = async () => {
       try {
         const response = await api.get('/books')
@@ -17,7 +17,7 @@ export default {
       }
     }
 
-    // Chama a função ao montar o componente
+    // Calls the function when the component is mounted
     onMounted(fetchBooks)
 
     return {
@@ -28,8 +28,5 @@ export default {
 </script>
 
 <template>
-
-
-  <RouterView />
+<RouterView />
 </template>
-
